@@ -33,3 +33,4 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
+nuget.config
