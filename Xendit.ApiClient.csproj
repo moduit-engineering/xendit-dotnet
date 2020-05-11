@@ -4,11 +4,33 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Moduit Engineering</Authors>
     <Company>Moduit Digital Indonesia</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageId>Xendit.Dotnet</PackageId>
+    <Product>Xendit.Dotnet</Product>
+    <Description>This library is the abstraction of Xendit API for access from applications written with C# .NET.
+
+Please note that this library is not official from Xendit. You can refer to Xendit Github for the complete list of their official API client libraries.
+</Description>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/moduit-engineering/xendit-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/moduit-engineering/xendit-dotnet</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageTags>Xendit</PackageTags>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="RestSharp" Version="106.10.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="License.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
