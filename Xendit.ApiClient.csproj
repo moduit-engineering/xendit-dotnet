@@ -27,10 +27,10 @@ Please note that this library is not official from Xendit. You can refer to Xend
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="License.txt">
+    <Content Include="LICENSE.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
-    </None>
+    </Content>
   </ItemGroup>
 
 </Project>
