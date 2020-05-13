@@ -318,8 +318,7 @@ var linkAjaPayment = new XenditEWalletCreateLinkAjaPaymentRequest
     Items = linkAjaPaymentItems
 };
 
-var linkAjaPaymentResponse = await xendit.EWallet.CreateLinkAjaPaymentAsync(
-linkAjaPayment);
+var linkAjaPaymentResponse = await xendit.EWallet.CreateLinkAjaPaymentAsync(linkAjaPayment);
 ```
 
 #### Create a Dana payment
