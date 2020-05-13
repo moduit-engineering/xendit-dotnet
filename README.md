@@ -55,8 +55,8 @@ public class Program
         var xendit = new XenditClient("PUT YOUR API KEY HERE");  
   
         // The rest of the code...  
-  }  
-}  
+    }  
+}
 ```  
 For complete configuration, you can use the `XenditClient` constructor that accepts `XenditConfiguration`.  
   
@@ -79,13 +79,13 @@ public class Program
         var xendit = new XenditClient("PUT YOUR API KEY HERE");  
   
         // You can create non-specified fixed VA number by not providing `VirtualAccountNumber` property value.  
-  var requestedVA = new XenditVACreateRequest  
+        var requestedVA = new XenditVACreateRequest  
         {  
             ExternalId = "VA_fixed-1234567890",  
             Name = "Steve Woznike",  
             BankCode = XenditVABankCode.MANDIRI,  
             VirtualAccountNumber = "9999000002"  
-  }  
+        };
   
         var va = await xendit.VirtualAccount.CreateAsync(requestedVA);  
     }  
