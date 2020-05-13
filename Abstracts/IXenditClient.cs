@@ -1,4 +1,5 @@
 ﻿using Xendit.ApiClient.Disbursement;
+using Xendit.ApiClient.EWallet;
 using Xendit.ApiClient.Invoice;
 using Xendit.ApiClient.Security;
 using Xendit.ApiClient.VirtualAccount;
@@ -18,5 +19,7 @@ namespace Xendit.ApiClient.Abstracts
         IXenditInvoiceClient Invoice { get; }
 
         IXenditDisbursementClient Disbursement { get; }
+
+        IXenditEWalletClient EWallet { get; }
     }
 }

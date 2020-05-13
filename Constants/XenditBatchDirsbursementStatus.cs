@@ -9,7 +9,7 @@ namespace Xendit.ApiClient.Constants
         // Batch disbursement is created but needs to be approved to be processed further.
         NEEDS_APPROVAL,
 
-        // Uploading disbursements
+        // Uploading disbursements.
         UPLOADING,
 
         // All disbursements are successfully paid.

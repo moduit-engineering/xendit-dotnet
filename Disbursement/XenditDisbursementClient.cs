@@ -41,7 +41,7 @@ namespace Xendit.ApiClient.Disbursement
 
         public async Task<XenditDisbursementCreateResponse> CreateAsync(XenditDisbursementCreateRequest disbursement)
         {
-            const string resource = "disbursements";
+            var resource = "disbursements";
 
             return await _conn.SendRequestBodyAsync<XenditDisbursementCreateRequest, XenditDisbursementCreateResponse>(
                 Method.POST, resource, disbursement, disbursement.ExternalId);
@@ -49,7 +49,7 @@ namespace Xendit.ApiClient.Disbursement
         
         public async Task<XenditBatchDisbursementCreateResponse> CreateBatchAsync(XenditBatchDisbursementCreateRequest disbursement)
         {
-            const string resource = "batch_disbursements";
+            var resource = "batch_disbursements";
 
             return await _conn.SendRequestBodyAsync<XenditBatchDisbursementCreateRequest, XenditBatchDisbursementCreateResponse>(
                 Method.POST, resource, disbursement, disbursement.Reference);

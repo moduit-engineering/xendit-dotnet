@@ -32,9 +32,14 @@ Please note that this library is not official from Xendit. You can refer to [Xen
     - [Batch disbursement item](#batch-disbursement-item)  
     - [Create a batch disbursement](#create-a-batch-disbursement)  
     - [Get banks with available disbursement service](#get-banks-with-available-disbursement-service-1)  
- 8. [Exception Handling](#exception-handling)  
- 9. [Contributing](#contributing)  
- 10. [TODO](#todo)  
+ 8. [E-Wallet Services](#e-wallet-services)
+    - [Create a LinkAja payment](#create-a-linkaja-payment)
+    - [Create a Dana payment](#create-a-dana-payment)
+    - [Create an OVO payment](#create-an-ovo-payment)
+    - [Get an e-wallet payment](#get-an-e-wallet-payment)
+ 9. [Exception Handling](#exception-handling)  
+ 10. [Contributing](#contributing)  
+ 11. [TODO](#todo)  
   
 ## API Documentation  
 Please check [Xendit API Reference](https://xendit.github.io/apireference/).  
@@ -69,7 +74,7 @@ using Xendit.ApiClient.VirtualAccount;
   
 public class Program  
 {  
-    public static Main()  
+    public static void Main()  
     {  
         new Program().MainBusiness().Wait();  
     }  
@@ -286,6 +291,73 @@ var availableDisbBanks = await xendit.Disbursement.GetAvailableBanksAsync();
 ```  
   
 [Back to top](#table-of-contents)  
+
+### E-Wallet Services
+
+#### Create a LinkAja payment
+
+```csharp
+var linkAjaPaymentItems = new List<XenditEWalletCreateLinkAjaPaymentRequestItem>
+{
+    new XenditEWalletCreateLinkAjaPaymentRequestItem
+    {
+        Id = "id_test_karton123",
+        Name = "Kertas Karton",
+        Price = 15000,
+        Quantity = 2
+    }
+};
+
+var linkAjaPayment = new XenditEWalletCreateLinkAjaPaymentRequest
+{
+    ExternalId = "linkaja-ewallet-1234",
+    Amount = 30000,
+    CallbackUrl = "https://example.com/callback_url",
+    RedirectUrl = "https://example.com/redirect_url",
+    Phone = "089911111111",
+    Items = linkAjaPaymentItems
+};
+
+var linkAjaPaymentResponse = await xendit.EWallet.CreateLinkAjaPaymentAsync(
+linkAjaPayment);
+```
+
+#### Create a Dana payment
+
+```csharp
+var danaPayment = new XenditEWalletCreateDanaPaymentRequest
+{
+    ExternalId = "dana-ewallet-1234",
+    Amount = 25000,
+    CallbackUrl = "https://example.com/callback",
+    RedirectUrl = "https://example.com/redirect"
+};
+
+var danaPaymentResponse = await xendit.EWallet.CreateDanaPaymentAsync(danaPayment);
+```
+
+#### Create an OVO payment
+
+```csharp
+var ovoPayment = new XenditEWalletCreateOvoPaymentRequest
+{
+    ExternalId = "ovo-ewallet-1234",
+    Amount = 12500,
+    Phone = "088889998888"
+};
+
+var ovoPaymentResponse = await xendit.EWallet.CreateOvoPaymentAsync(ovoPayment);
+```
+
+You can use other Xendit API version for OVO using `ApiVersion` property of `XenditEWalletCreateOvoPaymentRequest`, by default it uses the latest version. You can access the predefined versions using `XenditEWalletOvoVersion` class. If you are using Visual Studio or Visual Studio Code, you should be able to see the summary of each version.
+
+#### Get an e-wallet payment
+
+```csharp
+var payment = await xendit.EWallet.GetPaymentStatus("ovo-ewallet-1234", XenditEWalletType.OVO);
+```
+
+[Back to top](#table-of-contents)  
   
 ## Exception Handling  
   
@@ -301,7 +373,6 @@ Normally these exception's properties are enough to investigate what really happ
   
 1. There are some Xendit's API endpoints that haven't been implemented to this library:  
 	 - Credit Card
-	 - eWallets
 	 - Cardless Transaction
 	 - Retail Outlets
 	 - Invoices

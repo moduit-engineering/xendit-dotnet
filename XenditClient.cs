@@ -1,5 +1,6 @@
 ﻿using Xendit.ApiClient.Abstracts;
 using Xendit.ApiClient.Disbursement;
+using Xendit.ApiClient.EWallet;
 using Xendit.ApiClient.Invoice;
 using Xendit.ApiClient.Security;
 using Xendit.ApiClient.VirtualAccount;
@@ -20,6 +21,8 @@ namespace Xendit.ApiClient
 
         public IXenditDisbursementClient Disbursement { get; }
 
+        public IXenditEWalletClient EWallet { get; }
+
         public XenditClient(XenditConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,6 +34,7 @@ namespace Xendit.ApiClient
             VirtualAccount = new XenditVAClient(connection);
             Invoice = new XenditInvoiceClient(connection);
             Disbursement = new XenditDisbursementClient(connection);
+            EWallet = new XenditEWalletClient(connection);
         }
 
         public XenditClient(string apiKey)
@@ -49,6 +53,7 @@ namespace Xendit.ApiClient
             VirtualAccount = new XenditVAClient(connection);
             Invoice = new XenditInvoiceClient(connection);
             Disbursement = new XenditDisbursementClient(connection);
+            EWallet = new XenditEWalletClient(connection);
         }
     }
 }

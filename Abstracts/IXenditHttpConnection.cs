@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Xendit.ApiClient.Abstracts
@@ -7,7 +8,7 @@ namespace Xendit.ApiClient.Abstracts
     {
 
         /// <summary>
-        /// Send simple request to Xendit API.
+        /// Sends simple request to Xendit API.
         /// </summary>
         /// <param name="method">HTTP Method</param>
         /// <param name="resource">Resource or endpoint.</param>
@@ -16,7 +17,7 @@ namespace Xendit.ApiClient.Abstracts
         Task<TResponse> SendRequestAsync<TResponse>(Method method, string resource);
 
         /// <summary>
-        /// Send simple request to Xendit API with specified idempotency key.
+        /// Sends simple request to Xendit API with specified idempotency key.
         /// </summary>
         /// <param name="method">HTTP Method</param>
         /// <param name="resource">Resource or endpoint.</param>
@@ -45,6 +46,18 @@ namespace Xendit.ApiClient.Abstracts
         /// <exception cref="XenditHttpResponseException">Returned when the response is not successful (non 2xx http status code)</exception>
         Task<TResponse> SendRequestBodyAsync<TRequest, TResponse>(Method method,
             string resource, TRequest body, string idempotencyKey)
+            where TRequest : IXenditBaseRequest;
+
+        /// <summary>
+        /// Sends request to Xendit API with custom headers and request body object.
+        /// </summary>
+        /// <param name="method">HTTP Method.</param>
+        /// <param name="resource">Resource or endpoint.</param>
+        /// <param name="customHeaders">Custom request headers (key: header name, value: header value).</param>
+        /// <param name="body">Request body object.</param>
+        /// <exception cref="XenditHttpResponseException">Returned when the response is not successful (non 2xx http status code)</exception>
+        Task<TResponse> SendRequestBodyAsync<TRequest, TResponse>(Method method,
+            string resource, Dictionary<string, string> customHeaders, TRequest body)
             where TRequest : IXenditBaseRequest;
     }
 }
