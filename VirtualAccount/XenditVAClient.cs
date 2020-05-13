@@ -18,7 +18,7 @@ namespace Xendit.ApiClient.VirtualAccount
 
         public async Task<IEnumerable<XenditVABank>> GetAvailableBanksAsync()
         {
-            var resource = "/available_virtual_account_banks";
+            const string resource = "/available_virtual_account_banks";
 
             return await _conn.SendRequestAsync<IEnumerable<XenditVABank>>(
                 Method.GET, resource);
@@ -34,7 +34,7 @@ namespace Xendit.ApiClient.VirtualAccount
 
         public async Task<XenditVACreateResponse> CreateAsync(XenditVACreateRequest va)
         {
-            var resource = "/callback_virtual_accounts";
+            const string resource = "/callback_virtual_accounts";
 
             return await _conn.SendRequestBodyAsync<XenditVACreateRequest, XenditVACreateResponse>(
                 Method.POST, resource, va, va.ExternalId);

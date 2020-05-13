@@ -17,7 +17,7 @@ namespace Xendit.ApiClient.Disbursement
 
         public async Task<IEnumerable<XenditDisbursementBank>> GetAvailableBanksAsync()
         {
-            var resource = "/available_disbursements_banks";
+            const string resource = "/available_disbursements_banks";
 
             return await _conn.SendRequestAsync<IEnumerable<XenditDisbursementBank>>(
                 Method.GET, resource);

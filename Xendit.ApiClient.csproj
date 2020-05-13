@@ -33,4 +33,9 @@ Please note that this library is not official from Xendit. You can refer to Xend
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Tests\Disbursement" />
+    <Folder Include="Tests\VirtualAccount" />
+  </ItemGroup>
+
 </Project>

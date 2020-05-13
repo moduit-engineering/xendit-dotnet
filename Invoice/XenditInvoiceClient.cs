@@ -21,7 +21,7 @@ namespace Xendit.ApiClient.Invoice
 
         public async Task<IEnumerable<XenditInvoiceCreateResponse>> GetAllAsync(XenditInvoiceOptions options)
         {
-            var resource = "/v2/invoices";
+            const string resource = "/v2/invoices";
 
             return await _conn.SendRequestBodyAsync<XenditInvoiceOptions, IEnumerable<XenditInvoiceCreateResponse>>(
                 Method.POST, resource, options);
@@ -37,7 +37,7 @@ namespace Xendit.ApiClient.Invoice
 
         public async Task<XenditInvoiceCreateResponse> CreateAsync(XenditInvoiceCreateRequest invoice)
         {
-            var resource = "/v2/invoices";
+            const string resource = "/v2/invoices";
 
             return await _conn.SendRequestBodyAsync<XenditInvoiceCreateRequest, XenditInvoiceCreateResponse>(
                 Method.POST, resource, invoice, invoice.ExternalId);
