@@ -374,7 +374,6 @@ Normally these exception's properties are enough to investigate what really happ
 	 - Credit Card
 	 - Cardless Transaction
 	 - Retail Outlets
-	 - Invoices
 	 - Recurring Payments
 	 - Payouts
 
