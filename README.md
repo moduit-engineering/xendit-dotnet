@@ -76,7 +76,7 @@ public class Program
 {  
     public static void Main()  
     {  
-        new Program().MainBusiness().Wait();  
+        MainBusiness().Wait();  
     }  
   
     private async Task MainBusiness()  
@@ -353,7 +353,7 @@ You can use other Xendit API version for OVO using `ApiVersion` property of `Xen
 #### Get an e-wallet payment
 
 ```csharp
-var payment = await xendit.EWallet.GetPaymentStatus("ovo-ewallet-1234", XenditEWalletType.OVO);
+var payment = await xendit.EWallet.GetPaymentStatusAsync("ovo-ewallet-1234", XenditEWalletType.OVO);
 ```
 
 [Back to top](#table-of-contents)  

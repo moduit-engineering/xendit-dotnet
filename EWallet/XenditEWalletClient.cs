@@ -65,7 +65,7 @@ namespace Xendit.ApiClient.EWallet
                 Method.POST, resource, headers, linkAja);
         }
 
-        public async Task<XenditEWalletCreatePaymentResponse> GetPaymentStatus(string externalId, XenditEWalletType eWalletType)
+        public async Task<XenditEWalletCreatePaymentResponse> GetPaymentStatusAsync(string externalId, XenditEWalletType eWalletType)
         {
             var resource = $"/ewallets?external_id={externalId}&ewallet_type={eWalletType}";
 

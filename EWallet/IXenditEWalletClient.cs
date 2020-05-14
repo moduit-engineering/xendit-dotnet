@@ -11,6 +11,6 @@ namespace Xendit.ApiClient.EWallet
 
         Task<XenditEWalletCreatePaymentResponse> CreateLinkAjaPaymentAsync(XenditEWalletCreateLinkAjaPaymentRequest linkAja);
 
-        Task<XenditEWalletCreatePaymentResponse> GetPaymentStatus(string externalId, XenditEWalletType eWalletType);
+        Task<XenditEWalletCreatePaymentResponse> GetPaymentStatusAsync(string externalId, XenditEWalletType eWalletType);
     }
 }
