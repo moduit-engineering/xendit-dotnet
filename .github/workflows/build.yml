@@ -20,6 +20,6 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build ./Xendit.ApiClient.sln --configuration Release --no-restore
+      run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test ./Xendit.ApiClient.Tests/Xendit.ApiClient.Tests.csproj --no-restore --verbosity normal
+      run: dotnet test --no-restore --verbosity normal
