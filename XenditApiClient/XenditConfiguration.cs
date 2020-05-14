@@ -4,7 +4,7 @@ namespace Xendit.ApiClient
 {
     public class XenditConfiguration
     {
-        public string BaseUrl { get; set; }
+        public string BaseUrl { get; set; } = "https://api.xendit.co";
 
         public string ApiKey { get; set; }
 

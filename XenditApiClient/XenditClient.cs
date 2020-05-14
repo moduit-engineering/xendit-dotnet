@@ -1,4 +1,5 @@
-﻿using Xendit.ApiClient.Abstracts;
+﻿using System;
+using Xendit.ApiClient.Abstracts;
 using Xendit.ApiClient.Disbursement;
 using Xendit.ApiClient.EWallet;
 using Xendit.ApiClient.Invoice;
@@ -25,6 +26,16 @@ namespace Xendit.ApiClient
 
         public XenditClient(XenditConfiguration configuration)
         {
+            if (configuration == null)
+            {
+                throw new ArgumentNullException(nameof(configuration));
+            }
+
+            if (string.IsNullOrWhiteSpace(configuration.ApiKey))
+            {
+                throw new ArgumentNullException(nameof(configuration.ApiKey));
+            }
+
             Configuration = configuration;
             BaseUrl = Configuration.BaseUrl;
 
@@ -39,9 +50,13 @@ namespace Xendit.ApiClient
 
         public XenditClient(string apiKey)
         {
+            if (string.IsNullOrWhiteSpace(apiKey))
+            {
+                throw new ArgumentNullException(nameof(apiKey));
+            }
+
             Configuration = new XenditConfiguration
             {
-                BaseUrl = "https://api.xendit.co",
                 ApiKey = apiKey
             };
 

@@ -42,7 +42,7 @@ namespace Xendit.ApiClient.VirtualAccount
 
         public async Task<XenditVACreateResponse> ExpireAsync(string vaId)
         {
-            var resource = $"callback_virtual_accounts/{vaId}";
+            var resource = $"/callback_virtual_accounts/{vaId}";
 
             var request = new XenditVACreateExpireRequest
             {

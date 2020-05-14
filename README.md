@@ -55,7 +55,7 @@ using Xendit.ApiClient;
   
 public class Program  
 {  
-    public static Main()  
+    public static void Main()  
     {  
         var xendit = new XenditClient("PUT YOUR API KEY HERE");  
   

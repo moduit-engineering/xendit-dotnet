@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Moduit Engineering</Authors>
     <Company>Moduit Digital Indonesia</Company>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageId>Xendit.Dotnet</PackageId>
     <Product>Xendit.Dotnet</Product>
@@ -15,34 +15,22 @@ Please note that this library is not official from Xendit. You can refer to Xend
     <PackageProjectUrl>https://github.com/moduit-engineering/xendit-dotnet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/moduit-engineering/xendit-dotnet</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-    <PackageReleaseNotes>Support Xendit eWallet API</PackageReleaseNotes>
+    <PackageReleaseNotes></PackageReleaseNotes>
     <PackageTags>Xendit</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="RestSharp" Version="106.10.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="LICENSE.md">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Tests\Disbursement" />
-    <Folder Include="Tests\VirtualAccount" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="LICENSE.md">
+    <None Include="..\LICENSE.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="RestSharp" Version="106.10.1" />
   </ItemGroup>
 
 </Project>
