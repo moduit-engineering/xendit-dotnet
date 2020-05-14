@@ -328,8 +328,8 @@ var danaPayment = new XenditEWalletCreateDanaPaymentRequest
 {
     ExternalId = "dana-ewallet-1234",
     Amount = 25000,
-    CallbackUrl = "https://example.com/callback",
-    RedirectUrl = "https://example.com/redirect"
+    CallbackUrl = "https://example.com/callback_url",
+    RedirectUrl = "https://example.com/redirect_url"
 };
 
 var danaPaymentResponse = await xendit.EWallet.CreateDanaPaymentAsync(danaPayment);
@@ -377,7 +377,6 @@ Normally these exception's properties are enough to investigate what really happ
 	 - Recurring Payments
 	 - Payouts
 
-2. Adding tests into this library.
-3. CI/CD
+2. CI/CD
 
 We welcome any contributions to this project. :)
