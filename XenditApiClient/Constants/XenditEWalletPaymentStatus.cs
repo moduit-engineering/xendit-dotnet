@@ -16,10 +16,10 @@ namespace Xendit.ApiClient.Constants
         PAID,
 
         // Payment creation for specified `external_id` failed.
-        // (and is not completed (e.g. user did not complete the payment process or payment session timed out for OVO).
+        // (and is not completed [e.g. user did not complete the payment process or payment session timed out] for OVO).
         FAILED,
 
-        // Payment transaction URL for specified external_id has expired
+        // Payment transaction URL for specified `external_id` has expired
         // (e.g. user did not access payment link or complete the payment process).
         EXPIRED
     }
