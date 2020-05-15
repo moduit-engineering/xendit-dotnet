@@ -60,7 +60,8 @@ namespace Xendit.ApiClient.Abstracts
 
         /// <summary>
         /// Sends request to Xendit API with headers and request body object.
-        /// This method does not include idempotency key in header, you need to manually assign it in headers.
+        /// This method only includes 'for-user-id' header if provided from `TRequest`,
+        /// but does not include idempotency key in header, you need to manually assign it in headers if you need it.
         /// </summary>
         /// <param name="method">HTTP Method.</param>
         /// <param name="resource">Resource or endpoint.</param>

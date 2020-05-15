@@ -74,38 +74,14 @@ namespace Xendit.ApiClient
             string resource, TRequest body, string idempotencyKey)
             where TRequest : XenditBaseRequest
         {
-            var cts = new CancellationTokenSource();
-
-            var client = new RestClient(_config.BaseUrl)
-            {
-                Authenticator = new HttpBasicAuthenticator(_config.ApiKey, string.Empty)
-            };
-
-            var request = new RestRequest(resource, method);
+            var headers = new Dictionary<string, string>();
 
             if (!string.IsNullOrWhiteSpace(idempotencyKey))
             {
-                request.AddHeader("X-Idempotency-Key", idempotencyKey);
+                headers.Add("X-Idempotency-Key", idempotencyKey);
             }
 
-            if (!string.IsNullOrWhiteSpace(body.ForUserId))
-            {
-                request.AddHeader("for-user-id", body.ForUserId);
-            }
-            
-            if (body != null)
-            {
-                request.AddJsonBody(JsonConvert.SerializeObject(body, _jsonSerializer));
-            }
-
-            var response = await client.ExecuteAsync<TResponse>(request, cts.Token);
-
-            if (!response.IsSuccessful)
-            {
-                throw new XenditHttpResponseException(response);
-            }
-
-            return response.Data;
+            return await SendRequestBodyAsync<TRequest, TResponse>(method, resource, headers, body);
         }
 
         public async Task<TResponse> SendRequestBodyAsync<TRequest, TResponse>(Method method,
@@ -124,6 +100,11 @@ namespace Xendit.ApiClient
             foreach (var header in headers ?? new Dictionary<string, string>())
             {
                 request.AddHeader(header.Key, header.Value);
+            }
+
+            if (!string.IsNullOrWhiteSpace(body.ForUserId))
+            {
+                request.AddHeader("for-user-id", body.ForUserId);
             }
 
             if (body != null)
