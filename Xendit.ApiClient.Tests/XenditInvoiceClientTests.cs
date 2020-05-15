@@ -88,10 +88,10 @@ namespace Xendit.ApiClient.Tests
             var connectionMock = new Mock<IXenditHttpConnection>();
 
             connectionMock
-                .Setup(c => c.SendRequestBodyAsync<IXenditBaseRequest, XenditInvoiceCreateResponse>(
+                .Setup(c => c.SendRequestBodyAsync<XenditBaseRequest, XenditInvoiceCreateResponse>(
                     It.IsAny<Method>(),
                     It.IsAny<string>(),
-                    It.IsAny<IXenditBaseRequest>(),
+                    It.IsAny<XenditBaseRequest>(),
                     It.IsAny<string>()))
                 .ReturnsAsync(new XenditInvoiceCreateResponse());
 

@@ -5,8 +5,23 @@ using Xendit.ApiClient.Constants;
 
 namespace Xendit.ApiClient.EWallet
 {
-    public class XenditEWalletCreateLinkAjaPaymentRequest : XenditEWalletBaseRequest, IXenditBaseRequest
+    public class XenditEWalletCreateLinkAjaPaymentRequest : XenditBaseRequest
     {
+        /// <summary>
+        /// Note:
+        /// The only allowed punctuation is -.
+        /// Maximum length allowed is 1000 characters.
+        /// It has to be unique per payment request.
+        /// </summary>
+        [JsonProperty("external_id")]
+        public string ExternalId { get; set; }
+
+        /// <summary>
+        /// Note: Minimum amount is 1 IDR and maximum is 10,000,000 IDR.
+        /// </summary>
+        [JsonProperty("amount")]
+        public decimal Amount { get; set; }
+
         /// <summary>
         /// Phone number of end-customer, e.g. 08123123123.<br />
         /// For testing purpose:<br />

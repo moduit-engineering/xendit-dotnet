@@ -4,7 +4,7 @@ using Xendit.ApiClient.Abstracts;
 
 namespace Xendit.ApiClient.VirtualAccount
 {
-    public class XenditVACreateExpireRequest : IXenditBaseRequest
+    public class XenditVACreateExpireRequest : XenditBaseRequest
     {
         [JsonProperty("expiration_date")]
         public DateTime ExpirationDate { get; set; }

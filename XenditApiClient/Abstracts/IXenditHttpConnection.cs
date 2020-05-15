@@ -26,6 +26,16 @@ namespace Xendit.ApiClient.Abstracts
         Task<TResponse> SendRequestAsync<TResponse>(Method method, string resource, string idempotencyKey);
 
         /// <summary>
+        /// Sends simple request to Xendit API with specified idempotency key.
+        /// </summary>
+        /// <param name="method">HTTP Method</param>
+        /// <param name="resource">Resource or endpoint.</param>
+        /// <param name="idempotencyKey">Indempotency key.</param>
+        /// <param name="forUserId">The sub-account user-id that you want to make this transaction for (xendPlatform).</param>
+        /// <exception cref="XenditHttpResponseException">Returned when the response is not successful (non 2xx http status code)</exception>
+        Task<TResponse> SendRequestAsync<TResponse>(Method method, string resource, string idempotencyKey, string forUserId);
+
+        /// <summary>
         /// Sends request to Xendit API with request body object.
         /// </summary>
         /// <param name="method">HTTP Method.</param>
@@ -34,7 +44,7 @@ namespace Xendit.ApiClient.Abstracts
         /// <exception cref="XenditHttpResponseException">Returned when the response is not successful (non 2xx http status code)</exception>
         Task<TResponse> SendRequestBodyAsync<TRequest, TResponse>(Method method,
             string resource, TRequest body)
-            where TRequest : IXenditBaseRequest;
+            where TRequest : XenditBaseRequest;
 
         /// <summary>
         /// Sends request to Xendit API with request body object and specified idempotency key.
@@ -46,18 +56,19 @@ namespace Xendit.ApiClient.Abstracts
         /// <exception cref="XenditHttpResponseException">Returned when the response is not successful (non 2xx http status code)</exception>
         Task<TResponse> SendRequestBodyAsync<TRequest, TResponse>(Method method,
             string resource, TRequest body, string idempotencyKey)
-            where TRequest : IXenditBaseRequest;
+            where TRequest : XenditBaseRequest;
 
         /// <summary>
-        /// Sends request to Xendit API with custom headers and request body object.
+        /// Sends request to Xendit API with headers and request body object.
+        /// This method does not include idempotency key in header, you need to manually assign it in headers.
         /// </summary>
         /// <param name="method">HTTP Method.</param>
         /// <param name="resource">Resource or endpoint.</param>
-        /// <param name="customHeaders">Custom request headers (key: header name, value: header value).</param>
+        /// <param name="headers">Custom request headers (key: header name, value: header value).</param>
         /// <param name="body">Request body object.</param>
         /// <exception cref="XenditHttpResponseException">Returned when the response is not successful (non 2xx http status code)</exception>
         Task<TResponse> SendRequestBodyAsync<TRequest, TResponse>(Method method,
-            string resource, Dictionary<string, string> customHeaders, TRequest body)
-            where TRequest : IXenditBaseRequest;
+            string resource, Dictionary<string, string> headers, TRequest body)
+            where TRequest : XenditBaseRequest;
     }
 }

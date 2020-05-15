@@ -6,7 +6,7 @@ using Xendit.ApiClient.Constants;
 
 namespace Xendit.ApiClient.Invoice
 {
-    public class XenditInvoiceOptions : IXenditBaseRequest
+    public class XenditInvoiceOptions : XenditBaseRequest
     {
         [JsonProperty("statuses")]
         public IEnumerable<XenditInvoiceStatus> Statuses { get; set; }

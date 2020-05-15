@@ -4,7 +4,7 @@ using Xendit.ApiClient.Constants;
 
 namespace Xendit.ApiClient.Disbursement
 {
-    public class XenditDisbursementCreateRequest : IXenditBaseRequest
+    public class XenditDisbursementCreateRequest : XenditBaseRequest
     {
         [JsonProperty("external_id")]
         public string ExternalId { get; set; }

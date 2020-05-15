@@ -3,7 +3,7 @@ using Xendit.ApiClient.Abstracts;
 
 namespace Xendit.ApiClient.Invoice
 {
-    public class XenditInvoiceCreateRequest : IXenditBaseRequest
+    public class XenditInvoiceCreateRequest : XenditBaseRequest
     {
         [JsonProperty("external_id")]
         public string ExternalId { get; set; }

@@ -5,7 +5,7 @@ using Xendit.ApiClient.Constants;
 
 namespace Xendit.ApiClient.Disbursement
 {
-    public class XenditBatchDisbursementCreateRequest : IXenditBaseRequest
+    public class XenditBatchDisbursementCreateRequest : XenditBaseRequest
     {
         [JsonProperty("reference")]
         public string Reference { get; set; }

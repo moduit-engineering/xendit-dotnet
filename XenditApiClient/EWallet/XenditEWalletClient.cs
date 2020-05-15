@@ -26,11 +26,6 @@ namespace Xendit.ApiClient.EWallet
                 headers.Add("X-API-VERSION", ovo.ApiVersion);
             }
 
-            if (!string.IsNullOrWhiteSpace(ovo.ForUserId))
-            {
-                headers.Add("for-user-id", ovo.ForUserId);
-            }
-
             return await _conn.SendRequestBodyAsync<XenditEWalletCreateOvoPaymentRequest, XenditEWalletCreatePaymentResponse>(
                 Method.POST, resource, headers, ovo);
         }
@@ -39,30 +34,16 @@ namespace Xendit.ApiClient.EWallet
         {
             var resource = "/ewallets";
 
-            var headers = new Dictionary<string, string>();
-
-            if (!string.IsNullOrWhiteSpace(dana.ForUserId))
-            {
-                headers.Add("for-user-id", dana.ForUserId);
-            }
-
             return await _conn.SendRequestBodyAsync<XenditEWalletCreateDanaPaymentRequest, XenditEWalletCreatePaymentResponse>(
-                Method.POST, resource, headers, dana);
+                Method.POST, resource, dana);
         }
 
         public async Task<XenditEWalletCreatePaymentResponse> CreateLinkAjaPaymentAsync(XenditEWalletCreateLinkAjaPaymentRequest linkAja)
         {
             var resource = "/ewallets";
 
-            var headers = new Dictionary<string, string>();
-
-            if (!string.IsNullOrWhiteSpace(linkAja.ForUserId))
-            {
-                headers.Add("for-user-id", linkAja.ForUserId);
-            }
-
             return await _conn.SendRequestBodyAsync<XenditEWalletCreateLinkAjaPaymentRequest, XenditEWalletCreatePaymentResponse>(
-                Method.POST, resource, headers, linkAja);
+                Method.POST, resource, linkAja);
         }
 
         public async Task<XenditEWalletCreatePaymentResponse> GetPaymentStatusAsync(string externalId, XenditEWalletType eWalletType)

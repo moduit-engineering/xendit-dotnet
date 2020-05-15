@@ -81,10 +81,10 @@ namespace Xendit.ApiClient.Tests
             var connectionMock = new Mock<IXenditHttpConnection>();
 
             connectionMock
-                .Setup(c => c.SendRequestBodyAsync<IXenditBaseRequest, XenditDisbursementCreateResponse>(
+                .Setup(c => c.SendRequestBodyAsync<XenditBaseRequest, XenditDisbursementCreateResponse>(
                     It.IsAny<Method>(),
                     It.IsAny<string>(),
-                    It.IsAny<IXenditBaseRequest>(),
+                    It.IsAny<XenditBaseRequest>(),
                     It.IsAny<string>()))
                 .ReturnsAsync(new XenditDisbursementCreateResponse());
 
@@ -110,10 +110,10 @@ namespace Xendit.ApiClient.Tests
             var connectionMock = new Mock<IXenditHttpConnection>();
 
             connectionMock
-                .Setup(c => c.SendRequestBodyAsync<IXenditBaseRequest, XenditBatchDisbursementCreateResponse>(
+                .Setup(c => c.SendRequestBodyAsync<XenditBaseRequest, XenditBatchDisbursementCreateResponse>(
                     It.IsAny<Method>(),
                     It.IsAny<string>(),
-                    It.IsAny<IXenditBaseRequest>(),
+                    It.IsAny<XenditBaseRequest>(),
                     It.IsAny<string>()))
                 .ReturnsAsync(new XenditBatchDisbursementCreateResponse());
 

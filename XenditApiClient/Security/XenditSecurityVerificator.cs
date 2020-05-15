@@ -11,6 +11,11 @@
 
         public bool IsWebhookCallbackVerified(string incomingToken)
         {
+            if (string.IsNullOrWhiteSpace(_config.CallbackVerificationToken))
+            {
+                return true;
+            }
+
             return (_config.CallbackVerificationToken == incomingToken);
         }
     }

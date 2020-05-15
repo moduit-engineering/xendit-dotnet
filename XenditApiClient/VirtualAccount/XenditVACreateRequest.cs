@@ -5,7 +5,7 @@ using Xendit.ApiClient.Constants;
 
 namespace Xendit.ApiClient.VirtualAccount
 {
-    public class XenditVACreateRequest : IXenditBaseRequest
+    public class XenditVACreateRequest : XenditBaseRequest
     {
         [JsonProperty("external_id")]
         public string ExternalId { get; set; }

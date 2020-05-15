@@ -29,6 +29,11 @@ namespace Xendit.ApiClient
 
         public async Task<TResponse> SendRequestAsync<TResponse>(Method method, string resource, string idempotencyKey)
         {
+            return await SendRequestAsync<TResponse>(method, resource, idempotencyKey, null);
+        }
+
+        public async Task<TResponse> SendRequestAsync<TResponse>(Method method, string resource, string idempotencyKey, string forUserId)
+        {
             var cts = new CancellationTokenSource();
 
             var client = new RestClient(_config.BaseUrl)
@@ -41,6 +46,11 @@ namespace Xendit.ApiClient
             if (!string.IsNullOrWhiteSpace(idempotencyKey))
             {
                 request.AddHeader("X-Idempotency-Key", idempotencyKey);
+            }
+
+            if (!string.IsNullOrWhiteSpace(forUserId))
+            {
+                request.AddHeader("for-user-id", forUserId);
             }
 
             var response = await client.ExecuteAsync<TResponse>(request, cts.Token);
@@ -55,14 +65,14 @@ namespace Xendit.ApiClient
 
         public async Task<TResponse> SendRequestBodyAsync<TRequest, TResponse>(Method method,
             string resource, TRequest body)
-            where TRequest : IXenditBaseRequest
+            where TRequest : XenditBaseRequest
         {
             return await SendRequestBodyAsync<TRequest, TResponse>(method, resource, body, null);
         }
 
         public async Task<TResponse> SendRequestBodyAsync<TRequest, TResponse>(Method method,
             string resource, TRequest body, string idempotencyKey)
-            where TRequest : IXenditBaseRequest
+            where TRequest : XenditBaseRequest
         {
             var cts = new CancellationTokenSource();
 
@@ -76,6 +86,11 @@ namespace Xendit.ApiClient
             if (!string.IsNullOrWhiteSpace(idempotencyKey))
             {
                 request.AddHeader("X-Idempotency-Key", idempotencyKey);
+            }
+
+            if (!string.IsNullOrWhiteSpace(body.ForUserId))
+            {
+                request.AddHeader("for-user-id", body.ForUserId);
             }
             
             if (body != null)
@@ -94,8 +109,8 @@ namespace Xendit.ApiClient
         }
 
         public async Task<TResponse> SendRequestBodyAsync<TRequest, TResponse>(Method method,
-            string resource, Dictionary<string, string> customHeaders, TRequest body)
-            where TRequest : IXenditBaseRequest
+            string resource, Dictionary<string, string> headers, TRequest body)
+            where TRequest : XenditBaseRequest
         {
             var cts = new CancellationTokenSource();
 
@@ -106,7 +121,7 @@ namespace Xendit.ApiClient
 
             var request = new RestRequest(resource, method);
 
-            foreach (var header in customHeaders ?? new Dictionary<string, string>())
+            foreach (var header in headers ?? new Dictionary<string, string>())
             {
                 request.AddHeader(header.Key, header.Value);
             }
