@@ -75,7 +75,7 @@ using Xendit.ApiClient.VirtualAccount;
     
 public class Program
 {    
-    public static Main()    
+    public static void Main()    
     {    
         MainBusiness().Wait();    
     }    
@@ -112,7 +112,8 @@ var requestedDisbursement = new XenditDisbursementCreateRequest
     BankCode = XenditDisbursementBankCode.MANDIRI,    
     AccountHolderName = "Andilau Sinarasa",    
     AccountNumber = "1234567890",    
-    Description = "Disbursement description." };    
+    Description = "Disbursement description."
+};    
     
 var disbursement = await xendit.Disbursement.CreateAsync(requestedDisbursement);    
 ```    
@@ -147,7 +148,8 @@ var requestedInvoice = new XenditInvoiceCreateRequest
     ExternalId = "My-Invoice-1234567890",    
     Amount = 75000,    
     PayerEmail = "customer@example.com",    
-    Description = "Invoice for a random gadget" };    
+    Description = "Invoice for a random gadget"
+};    
     
 var invoice = await xendit.Invoice.CreateAsync(requestedInvoice);    
 ```    
@@ -229,7 +231,8 @@ new XenditVACreateRequest
     BankCode = XenditVABankCode.BNI,    
     Name = "VA Test",    
     IsClosedVA = true,    
-    ExpectedAmount = 1350000 };    
+    ExpectedAmount = 1350000
+};    
     
 var va = await xendit.VirtualAccount.CreateAsync(requestedVA);    
 ```    
@@ -325,8 +328,8 @@ var danaPayment = new XenditEWalletCreateDanaPaymentRequest
 {
     ExternalId = "dana-ewallet-1234",
     Amount = 25000,
-    CallbackUrl = "https://example.com/callback",
-    RedirectUrl = "https://example.com/redirect"
+    CallbackUrl = "https://example.com/callback_url",
+    RedirectUrl = "https://example.com/redirect_url"
 };
 
 var danaPaymentResponse = await xendit.EWallet.CreateDanaPaymentAsync(danaPayment);
@@ -372,7 +375,6 @@ Normally these exception's properties are enough to investigate what really happ
     - Credit Card  
     - Cardless Transaction  
     - Retail Outlets  
-    - Invoices  
     - Recurring Payments  
     - Payouts  
 
