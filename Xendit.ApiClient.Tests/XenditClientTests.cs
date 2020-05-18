@@ -29,7 +29,7 @@ namespace Xendit.ApiClient.Tests
         }
 
         [Fact]
-        public void CraeteClientUsingConfigConstructor_ReturnsCorrectInstance()
+        public void CreateClientUsingConfigConstructor_ReturnsCorrectInstance()
         {
             var config = new XenditConfiguration
             {

@@ -23,14 +23,20 @@ namespace Xendit.ApiClient
         }
 
         public int StatusCode { get; }
-        public string Content { get; }
-        public string Resource { get; }
-        public string ResponseUri { get; }
-        public string HttpMethod { get; }
-        public string RequestBody { get; }
-        public string ResponseHeaders { get; }
-        public Exception ResponseException { get; }
 
+        public string Content { get; }
+
+        public string Resource { get; }
+
+        public string ResponseUri { get; }
+
+        public string HttpMethod { get; }
+
+        public string RequestBody { get; }
+
+        public string ResponseHeaders { get; }
+
+        public Exception ResponseException { get; }
 
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
         protected XenditHttpResponseException(SerializationInfo info, StreamingContext context)
