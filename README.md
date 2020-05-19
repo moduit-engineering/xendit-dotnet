@@ -8,40 +8,43 @@ This library is the abstraction of Xendit API for access from applications writt
 Please note that this library is not official from Xendit. You can refer to [Xendit Github](https://github.com/xendit/) for the complete list of their official API client libraries.    
     
 # Table of Contents    
-    
- 1. [API Documentation](#api-documentation)    
- 2. [Requirements](#requirements)    
- 3. [Usage](#usage)    
- 4. [Disbursement Services](#disbursement-services)    
+ 1. [Installation](#installation)  
+ 2. [API Documentation](#api-documentation)    
+ 3. [Requirements](#requirements)    
+ 4. [Usage](#usage)    
+ 5. [Disbursement Services](#disbursement-services)    
     - [Create a disbursement](#create-a-disbursement)    
     - [Get banks with available disbursement service](#get-banks-with-available-disbursement-service)    
     - [Get a disbursement by external ID](#get-a-disbursement-by-external-id)    
     - [Get a disbursement by ID](#get-a-disbursement-by-id)    
- 5. [Invoice services](#invoice-services)    
+ 6. [Invoice services](#invoice-services)    
     - [Create an invoice](#create-an-invoice)    
     - [Get an invoice by ID](#get-an-invoice-by-id)    
     - [Get all invoices](#get-all-invoices)    
     - [Expire an invoice](#expire-an-invoice)    
- 6. [Virtual Account Services](#virtual-account-services)    
+ 7. [Virtual Account Services](#virtual-account-services)    
     - [Create a fixed virtual account](#create-a-fixed-virtual-account)    
       - [Closed virtual account](#closed-virtual-account)    
       - [Opened virtual account](#opened-virtual-account)    
     - [Get banks with available virtual account service](#get-banks-with-available-virtual-account-service)    
     - [Get a fixed virtual account by ID](#get-a-fixed-virtual-account-by-id)    
     - [Expire a fixed virtual account](#expire-a-fixed-virtual-account)    
- 7. [Batch Disbursement Services](#batch-disbursement-services)    
+ 8. [Batch Disbursement Services](#batch-disbursement-services)    
     - [Batch disbursement item](#batch-disbursement-item)    
     - [Create a batch disbursement](#create-a-batch-disbursement)    
     - [Get banks with available disbursement service](#get-banks-with-available-disbursement-service-1)  
- 8. [E-Wallet Services](#e-wallet-services)
+ 9. [E-Wallet Services](#e-wallet-services)
     - [Create a LinkAja payment](#create-a-linkaja-payment)
     - [Create a Dana payment](#create-a-dana-payment)
     - [Create an OVO payment](#create-an-ovo-payment)
     - [Get an e-wallet payment](#get-an-e-wallet-payment)   
- 9. [Exception Handling](#exception-handling)    
- 10. [Contributing](#contributing)    
- 11. [TODO](#todo)    
-    
+ 10. [Exception Handling](#exception-handling)    
+ 11. [Contributing](#contributing)    
+ 12. [TODO](#todo)    
+
+## Installation
+We recommended you to install using our [NuGet Package](https://www.nuget.org/packages/Xendit.Dotnet/), however you can clone this repo and embed it into your projects.
+
 ## API Documentation    
 Please check [Xendit API Reference](https://xendit.github.io/apireference/).    
     
